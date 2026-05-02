@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1746361609050,
+      "tag": "0000_acoustic_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1749726229254,
+      "tag": "0001_futuristic_lord_hawal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1757350698008,
+      "tag": "0002_faithful_bruce_banner",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1757436835371,
+      "tag": "0003_clumsy_psylocke",
+      "breakpoints": true
+    }
+  ]
+}
