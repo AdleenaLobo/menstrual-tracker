@@ -17,7 +17,7 @@ export default function LoginPage() {
   }
 
   const router = useRouter();
-  const [open, setOpen] = useState<boolean>(true);
+  const [_, setOpen] = useState<boolean>(true);
   const form= Ariakit.useFormStore<LoginFormValues>({
     defaultValues: { email: "", password: "" },
   });
@@ -38,7 +38,7 @@ export default function LoginPage() {
         form.setError("password", "Incorrect password");
         throw new Error("Incorrect password");
       }
-      
+
       user.getState().setUserEmail(userData[0].email);
       user.getState().setUserId(userData[0].id);
       router.push(`/home/dashboard/${userData[0].id}`);

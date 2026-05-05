@@ -15,7 +15,7 @@ type FormValues = {
 export default function Signup() {
   const [open, setOpen] = useState<boolean>(true);
   const router = useRouter();
-  
+
 
   const form = Ariakit.useFormStore<FormValues>({
     defaultValues: {
@@ -46,7 +46,7 @@ export default function Signup() {
   })
 
   return (
-    <Dialog open={open} close={!open} onClose={setOpen} heading="SignUp to CycleTracker">
+    <Dialog open={open} onClose={setOpen} heading="SignUp to CycleTracker">
       <Ariakit.Form
         store={form}
         aria-labelledby="signup-form"

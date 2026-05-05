@@ -15,8 +15,8 @@ export default function Prediction({ params }: { params: { userid: string } }) {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const dayRef = useRef<HTMLDivElement>(null);
-  const [daysCount, setDaysCount] = useState(0);
-  const [currentPhase, setCurrentPhase] = useState("Phase");
+  const [_,setDaysCount] = useState<Number>(0);
+  const [currentPhase] = useState("Phase");
   const [date, setDate] = useState();
   const [currentDate, setCurrentDate] = useState(["month"]);
   const [translateX, setTranslateX] = useState("");

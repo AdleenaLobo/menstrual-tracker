@@ -6,14 +6,10 @@ export default function Day({
   width = "w-24",
   height = "h-32",
   date = "null",
-  translateX,
-  setTranslateX,
 }: {
   width?: string;
   height?: string;
   date?: string;
-  translateX?: string;
-  setTranslateX: (m: string) => void;
 }) {
   const day = date?.split(" ")[2];
   const style = `rounded-full bg-white border-2 border-[#fc6c85] ml-2 ${width} ${height}`;

@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
-import { getDb } from "@/app";
-import { usercycledata } from "@/app/schema.ts";
+import {db} from "../../action";
+import { usercycledata } from "@/app/schema";
 
 
-const db = getDb();
- export async function POST(req:Request, res){
+ export async function POST(req:Request){
     try{
         console.log("Inside post");
         const data = await req.json();

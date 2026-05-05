@@ -1,5 +1,5 @@
 'use server';
-import { db } from ".."
+import {db} from "../action";
 import { users } from "../schema";
 import { eq } from "drizzle-orm";
 
