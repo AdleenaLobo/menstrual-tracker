@@ -3,6 +3,15 @@ import Dialog from "@/app/components/dialog";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 
+
+type  FormValues = {
+  cyclestatus: string,   // just a string
+  status: string,
+  flow: string,
+  comments: string,
+  symptoms: string[],
+}
+
 export default function CalendarForm({
   dateStr,
   clicked,
@@ -17,7 +26,7 @@ export default function CalendarForm({
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm({
+  } = useForm<FormValues>({
    defaultValues: {
   cyclestatus: "180ec6fc-6258-4278-83a2-3ca4da1b3d6f",   // just a string
   status: "start",

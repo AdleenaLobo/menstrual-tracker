@@ -10,16 +10,18 @@ import {
   CarouselNext,
   CarouselItem,
 } from "@/components/ui/carousel";
+import React from "react";
 
-export default function Prediction({ params }: { params: { userid: string } }) {
+export default function Prediction({params}:{params: Promise<{userid:string}>}) {
+  const { userid } = React.use(params);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const dayRef = useRef<HTMLDivElement>(null);
   const [,setDaysCount] = useState<number>(0);
   const [currentPhase] = useState("Phase");
-  const [date, setDate] = useState();
-  const [currentDate, setCurrentDate] = useState(["month"]);
-  const [translateX, setTranslateX] = useState("");
+  const [date, setDate] = useState<Date[]>();
+  const [currentDate, setCurrentDate] = useState<string[]>(["month"]);
+  // const [translateX, setTranslateX] = useState("");
 
   console.log(currentDate);
 
@@ -38,7 +40,8 @@ export default function Prediction({ params }: { params: { userid: string } }) {
 
         const startDate = subDays(today, half);
         const endDate = addDays(today, count - 4 - half);
-        setDate(eachDayOfInterval({ start: startDate, end: endDate })); //type error
+        const intervalDate = eachDayOfInterval({ start: startDate, end: endDate })
+        setDate(intervalDate); //type error
         console.log(typeof date);
       }
     };
@@ -64,8 +67,8 @@ export default function Prediction({ params }: { params: { userid: string } }) {
             <CarouselItem key={i} className="basis-[8rem] pl-2">
               <Day
                 date={d.toDateString()}
-                translateX={translateX}
-                setTranslateX={setTranslateX}
+                // translateX={translateX}
+                // setTranslateX={setTranslateX}
               />
             </CarouselItem>
           ))}
@@ -80,7 +83,7 @@ export default function Prediction({ params }: { params: { userid: string } }) {
             <li>
               <button
                 onClick={() => {
-                  router.push(`../calender/${params.userid}`);
+                  router.push(`../calender/${userid}`);
                 }}
               >
                 To get predictions add your current phase in the calender
@@ -96,7 +99,7 @@ export default function Prediction({ params }: { params: { userid: string } }) {
             <li>
               <button
                 onClick={() => {
-                  router.push(`../calender/${params.userid}`);
+                  router.push(`../calender/${userid}`);
                 }}
               >
                 To get predictions add your current phase in the calender
@@ -112,7 +115,7 @@ export default function Prediction({ params }: { params: { userid: string } }) {
             <li>
               <button
                 onClick={() => {
-                  router.push(`../calender/${params.userid}`);
+                  router.push(`../calender/${userid}`);
                 }}
               >
                 To get predictions add your current phase in the calender
