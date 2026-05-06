@@ -17,7 +17,7 @@ export default function LoginPage() {
   }
 
   const router = useRouter();
-  const [_, setOpen] = useState<boolean>(true);
+  const [, setOpen] = useState<boolean>(true);
   const form= Ariakit.useFormStore<LoginFormValues>({
     defaultValues: { email: "", password: "" },
   });
